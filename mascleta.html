@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascletà - Experience</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #f5f5f7; margin: 0; padding: 0; }
+        nav { background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 15px; position: sticky; top: 0; display: flex; align-items: center; border-bottom: 0.5px solid #ddd; z-index: 100; }
+        nav a { text-decoration: none; color: #0071e3; font-weight: 600; font-size: 15px; margin-right: 15px; }
+        .gallery { display: flex; overflow-x: auto; gap: 12px; padding: 20px; scrollbar-width: none; }
+        .gallery img { height: 260px; width: 85%; object-fit: cover; border-radius: 22px; flex-shrink: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .content { padding: 0 20px 40px; max-width: 600px; margin: auto; }
+        .card { background: white; border-radius: 24px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #ff6600; margin-bottom: 8px; display: block; }
+        h1 { font-size: 26px; margin: 5px 0 15px; letter-spacing: -0.5px; }
+        p { font-size: 15px; line-height: 1.6; color: #424245; text-align: justify; }
+        .curiosity { background: #000; color: white; border-radius: 20px; padding: 20px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html">← Back</a> <span>Mascletà 18.03.2026</span></nav>
+    <div class="gallery">
+        <img src="mascleta1.jpg"><img src="mascleta2.jpg"><img src="mascleta3.jpg">
+    </div>
+    <div class="content">
+        <div class="card">
+            <span class="tag">🇪🇸 ESPAÑOL</span>
+            <h1>La Ruta de la Pólvora</h1>
+            <p>La pirotecnia <strong>Caballer FX</strong> dispara hoy una sinfonía de 182kg de pólvora. No es un espectáculo visual, sino un concierto rítmico. El final se llama "terremoto" y las vibraciones se sienten literalmente en el corazón.</p>
+        </div>
+        <div class="card">
+            <span class="tag" style="color:#0071e3">🇬🇧 ENGLISH</span>
+            <h1>The Gunpowder Route</h1>
+            <p><strong>Caballer FX</strong> pyrotechnics displays a symphony of 182kg of gunpowder. It is not a visual show, but a rhythmic concert. The finale is called "terremoto" (earthquake), and you will literally feel the vibrations in your chest.</p>
+        </div>
+        <div class="curiosity">
+            <p style="color: #ff6600; font-weight: 700; margin: 0;">Did you know? / ¿Sabías que?</p>
+            <p style="color: white; font-size: 13px;">The noise reaches 120 decibels, similar to a jet engine taking off. / El ruido llega a 120 decibelios, como un avión despegando.</p>
+        </div>
+    </div>
+</body>
+</html>
