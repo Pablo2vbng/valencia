@@ -2,43 +2,232 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mascletà - Experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mascletà 18.03.2026 | Official Guide</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background: #f5f5f7; margin: 0; padding: 0; }
-        nav { background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 15px; position: sticky; top: 0; display: flex; align-items: center; border-bottom: 0.5px solid #ddd; z-index: 100; }
-        nav a { text-decoration: none; color: #0071e3; font-weight: 600; font-size: 15px; margin-right: 15px; }
-        .gallery { display: flex; overflow-x: auto; gap: 12px; padding: 20px; scrollbar-width: none; }
-        .gallery img { height: 260px; width: 85%; object-fit: cover; border-radius: 22px; flex-shrink: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .content { padding: 0 20px 40px; max-width: 600px; margin: auto; }
-        .card { background: white; border-radius: 24px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #ff6600; margin-bottom: 8px; display: block; }
-        h1 { font-size: 26px; margin: 5px 0 15px; letter-spacing: -0.5px; }
-        p { font-size: 15px; line-height: 1.6; color: #424245; text-align: justify; }
-        .curiosity { background: #000; color: white; border-radius: 20px; padding: 20px; margin-top: 10px; }
+        /* Tipografía similar a San Francisco (Apple) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --apple-bg: #f5f5f7;
+            --apple-card: rgba(255, 255, 255, 0.8);
+            --apple-text: #1d1d1f;
+            --apple-accent: #0071e3;
+            --fallas-orange: #ff6600;
+            --fire-red: #ff3b30;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVEGACIÓN ESTILO IOS --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            background: linear-gradient(180deg, #1d1d1f 0%, #434345 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #86868b;
+            margin: 0;
+        }
+
+        /* --- GALERÍA APPLE STYLE (MISMA ALTURA) --- */
+        .image-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .image-carousel::-webkit-scrollbar { display: none; }
+
+        .image-carousel img {
+            height: 280px; /* Altura fija */
+            width: 320px;
+            object-fit: cover;
+            border-radius: 22px;
+            scroll-snap-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- INFO CARDS --- */
+        .content {
+            padding: 0 20px 60px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--apple-card);
+            backdrop-filter: blur(10px);
+            border-radius: 22px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .tag {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .tag.es { color: var(--fire-red); }
+        .tag.en { color: var(--apple-accent); }
+
+        h3 { font-size: 22px; margin: 0 0 15px; letter-spacing: -0.5px; }
+        p { font-size: 15px; line-height: 1.5; color: #424245; margin-bottom: 15px; }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .spec-item {
+            background: rgba(0,0,0,0.03);
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .spec-item label { display: block; font-size: 11px; color: #86868b; text-transform: uppercase; margin-bottom: 4px; }
+        .spec-item value { display: block; font-size: 14px; font-weight: 600; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 13px;
+            color: #86868b;
+        }
+
+        /* Responsive Desktop */
+        @media (min-width: 768px) {
+            .image-carousel { justify-content: center; overflow: hidden; }
+            .image-carousel img { width: 300px; }
+        }
     </style>
 </head>
 <body>
-    <nav><a href="index.html">← Back</a> <span>Mascletà 18.03.2026</span></nav>
-    <div class="gallery">
-        <img src="mascleta1.jpg"><img src="mascleta2.jpg"><img src="mascleta3.jpg">
+
+    <nav>
+        <h1>Mascletà 2026</h1>
+    </nav>
+
+    <section class="hero">
+        <h2>La Ruta de la Pólvora</h2>
+        <p>Caballer FX | 18.03.2026</p>
+    </section>
+
+    <!-- Galería con imágenes de la misma altura -->
+    <div class="image-carousel">
+        <img src="mascleta1.jpg" alt="Mascletà Valencia">
+        <img src="mascleta2.jpg" alt="Pirotecnia Caballer">
+        <img src="mascleta3.jpg" alt="Plaza del Ayuntamiento">
     </div>
+
     <div class="content">
+
+        <!-- FICHA TÉCNICA -->
         <div class="card">
-            <span class="tag">🇪🇸 ESPAÑOL</span>
-            <h1>La Ruta de la Pólvora</h1>
-            <p>La pirotecnia <strong>Caballer FX</strong> dispara hoy una sinfonía de 182kg de pólvora. No es un espectáculo visual, sino un concierto rítmico. El final se llama "terremoto" y las vibraciones se sienten literalmente en el corazón.</p>
+            <span class="tag es">Detalles Técnicos</span>
+            <div class="specs-grid">
+                <div class="spec-item"><label>Compañía</label><value>Caballer FX</value></div>
+                <div class="spec-item"><label>Responsable</label><value>Mª José Lora</value></div>
+                <div class="spec-item"><label>Peso Pólvora</label><value>182,52 Kg</value></div>
+                <div class="spec-item"><label>Duración</label><value>319 Segundos</value></div>
+            </div>
+            <p style="font-size: 13px; margin-top: 10px; color: #86868b;">* Acompañamiento musical del CIM de Benimaclet.</p>
         </div>
+
+        <!-- ¿QUÉ ES UNA MASCLETÀ? -->
         <div class="card">
-            <span class="tag" style="color:#0071e3">🇬🇧 ENGLISH</span>
-            <h1>The Gunpowder Route</h1>
-            <p><strong>Caballer FX</strong> pyrotechnics displays a symphony of 182kg of gunpowder. It is not a visual show, but a rhythmic concert. The finale is called "terremoto" (earthquake), and you will literally feel the vibrations in your chest.</p>
+            <span class="tag es">Concepto</span>
+            <h3>¿Qué es una Mascletà?</h3>
+            <p>A diferencia de los castillos nocturnos, la Mascletà es un espectáculo sonoro y rítmico. Es un <strong>concierto de pólvora</strong> donde la melodía se crea mediante la explosión coordinada de miles de "masclets". El objetivo es alcanzar un clímax ensordecedor que haga vibrar el suelo.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            
+            <span class="tag en">Concept</span>
+            <h3>What is a Mascletà?</h3>
+            <p>Unlike nocturnal fireworks, a Mascletà is a sound and rhythmic performance. It is a <strong>gunpowder concert</strong> where the melody is created through the coordinated explosion of thousands of firecrackers. The goal is to reach a thunderous climax that shakes the ground.</p>
         </div>
-        <div class="curiosity">
-            <p style="color: #ff6600; font-weight: 700; margin: 0;">Did you know? / ¿Sabías que?</p>
-            <p style="color: white; font-size: 13px;">The noise reaches 120 decibels, similar to a jet engine taking off. / El ruido llega a 120 decibelios, como un avión despegando.</p>
+
+        <!-- EL DISPARO DE MAÑANA -->
+        <div class="card">
+            <span class="tag es">El Espectáculo</span>
+            <h3>"La ruta de la pólvora"</h3>
+            <p>Mañana 18 de marzo, <strong>María José Lora</strong>, quinta generación de la dinastía Caballer, presenta un disparo de estilo "valiente". </p>
+            <p>La estructura contará con secuencias aéreas digitales perimetrales que rodearán la plaza, seguidas de 5 retenciones terrestres y un <strong style="color:var(--fire-red)">terremoto final</strong> arrollador de tres fases.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <span class="tag en">The Show</span>
+            <h3>"The Gunpowder Route"</h3>
+            <p>Tomorrow, March 18th, <strong>María José Lora</strong>, the fifth generation of the Caballer dynasty, presents a "brave" style display.</p>
+            <p>The structure will feature peripheral digital aerial sequences surrounding the square, followed by 5 ground sections and a <strong style="color:var(--apple-accent)">thunderous final earthquake</strong> (terremoto) in three phases.</p>
         </div>
+
+        <!-- CONSEJOS IOS STYLE -->
+        <div class="card" style="background: var(--apple-text); color: white;">
+            <h3 style="color: white; margin-bottom: 10px;">Tips 💡</h3>
+            <p style="color: #86868b; font-size: 14px;">
+                • <strong>Timing:</strong> Arrive by 12:30 PM (Peak crowd day).<br>
+                • <strong>Position:</strong> Near the central fence for maximum vibration.<br>
+                • <strong>Safety:</strong> Open your mouth slightly during the finale.
+            </p>
+        </div>
+
     </div>
+
+    <footer>
+        Valencia Fallas 2026 · Pablo Vidal Vidal. Web Developer<br>
+
+    </footer>
+
 </body>
 </html>
