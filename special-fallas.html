@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Giants of Valencia - Special Section</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        :root { --apple-bg: #f5f5f7; --text: #1d1d1f; --accent: #0071e3; }
+        body { font-family: 'Inter', sans-serif; background: var(--apple-bg); color: var(--text); margin: 0; padding: 0; }
+        
+        nav { background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 15px; position: sticky; top: 0; display: flex; align-items: center; border-bottom: 0.5px solid #ddd; z-index: 100; }
+        nav a { text-decoration: none; color: var(--accent); font-weight: 600; font-size: 15px; }
+
+        header { padding: 40px 20px; text-align: center; background: white; }
+        header h1 { font-size: 32px; font-weight: 700; letter-spacing: -1px; margin: 0; }
+        header p { color: #86868b; font-size: 18px; margin-top: 10px; }
+
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        
+        .falla-card { background: white; border-radius: 28px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .falla-card img { width: 100%; height: 350px; object-fit: cover; }
+        .falla-body { padding: 25px; }
+        
+        .falla-name { font-size: 24px; font-weight: 700; margin: 0; color: #1d1d1f; }
+        .falla-desc { font-size: 15px; line-height: 1.6; color: #424245; margin: 15px 0; }
+        
+        .fun-fact { background: #f2f2f7; padding: 15px; border-radius: 15px; font-size: 14px; border-left: 4px solid #ffcc00; margin-bottom: 20px; }
+        .fun-fact b { color: #000; }
+
+        .btn-nav { display: block; background: var(--accent); color: white; text-align: center; padding: 15px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 15px; }
+        
+        .pablo-note { text-align: center; padding: 30px; font-style: italic; color: #86868b; border-top: 1px solid #ddd; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav><a href="index.html">← Back to Route</a></nav>
+
+    <header>
+        <h1>The Giants</h1>
+        <p>Special Section Monuments 2026</p>
+    </header>
+
+    <div class="container">
+
+        <!-- 1. CONVENTO JERUSALÉN -->
+        <div class="falla-card">
+            <img src="falla_convento.jpg">
+            <div class="falla-body">
+                <p style="color:#ff6600; font-weight:700; font-size:12px; text-transform:uppercase;">The Most Expensive</p>
+                <h2 class="falla-name">Convento Jerusalén</h2>
+                <p class="falla-desc">Located near the train station, this Falla usually has the highest budget in Valencia (often exceeding €250,000). It is famous for its classic elegance and massive scale.</p>
+                <div class="fun-fact"><b>Pablo's Fact:</b> Look at the painting details on the figures; they use real fabric patterns recreated with sand and paint!</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Falla+Convento+Jerusalen" class="btn-nav">🧭 NAVIGATE TO CONVENTO</a>
+            </div>
+        </div>
+
+        <!-- 2. PLAZA DEL PILAR -->
+        <div class="falla-card">
+            <img src="falla_pilar.jpg">
+            <div class="falla-body">
+                <p style="color:#ff6600; font-weight:700; font-size:12px; text-transform:uppercase;">The Vertical Giant</p>
+                <h2 class="falla-name">Plaza del Pilar</h2>
+                <p class="falla-desc">This is the "impossible" Falla. It is built in a very narrow square, making it look incredibly tall. It is known for risky structures that seem to defy gravity.</p>
+                <div class="fun-fact"><b>Pablo's Fact:</b> Every year people wonder if it will fall before the burning night because it leans so much!</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Plaza+del+Pilar+Valencia" class="btn-nav">🧭 NAVIGATE TO PILAR</a>
+            </div>
+        </div>
+
+        <!-- 3. CUBA - LITERATO AZORÍN -->
+        <div class="falla-card">
+            <img src="falla_cuba.jpeg">
+            <div class="falla-body">
+                <p style="color:#ff6600; font-weight:700; font-size:12px; text-transform:uppercase;">Ruzafa Lights & Art</p>
+                <h2 class="falla-name">Cuba - Literato Azorín</h2>
+                <p class="falla-desc">Located in the trendy Ruzafa neighborhood. This Falla is famous for combining a top-tier monument with the most spectacular street light show in Europe.</p>
+                <div class="fun-fact"><b>Pablo's Fact:</b> After seeing the monument, we will walk through the tunnel of millions of LED lights!</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Falla+Cuba+Literato+Azorin" class="btn-nav">🧭 NAVIGATE TO RUZAFA</a>
+            </div>
+        </div>
+
+        <!-- 4. EXPOSICIÓN -->
+        <div class="falla-card">
+            <img src="falla_exposicion.jpeg">
+            <div class="falla-body">
+                <p style="color:#ff6600; font-weight:700; font-size:12px; text-transform:uppercase;">The Detail Masters</p>
+                <h2 class="falla-name">Falla Exposición</h2>
+                <p class="falla-desc">Recent winners of the first prize. They are masters of "Ninots" (the individual figures). Their satire is sharp and their colors are incredibly vibrant.</p>
+                <div class="fun-fact"><b>Pablo's Fact:</b> This neighborhood was created for the 1909 Regional Exhibition, that's why it's so beautiful.</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Falla+Exposicion+Micer+Masco" class="btn-nav">🧭 NAVIGATE TO EXPOSICIÓN</a>
+            </div>
+        </div>
+
+        <div class="pablo-note">
+            "A special selection for my friends from Ningbo. <br>Welcome to my city! - Pablo"
+        </div>
+
+    </div>
+
+</body>
+</html>
