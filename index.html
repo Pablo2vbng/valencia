@@ -1,286 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Valencia Business Tour</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        :root { --bg: #f5f5f7; --card: #ffffff; --text: #1d1d1f; --accent: #0071e3; --line: #d2d2d7; --fallas: #ff6600; --gold: #ffcc00; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 0; }
+        
+        header { padding: 40px 25px 20px; background: white; border-bottom: 0.5px solid var(--line); }
+        header h1 { font-size: 26px; font-weight: 700; margin: 0; }
+        .date-badge { background: var(--fallas); color: white; padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
 
-        :root {
-            --bg: #f5f5f7;
-            --card: #ffffff;
-            --text: #1d1d1f;
-            --accent: #0071e3;
-            --line: #d2d2d7;
-            --fallas: #ff6600;
-        }
+        .route { position: relative; padding: 20px; max-width: 500px; margin: auto; }
+        .route::before { content: ''; position: absolute; left: 30px; top: 30px; bottom: 30px; width: 2px; background: var(--line); }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-        }
+        .point { position: relative; margin-bottom: 35px; padding-left: 45px; }
+        .point::after { content: ''; position: absolute; left: 6px; top: 4px; width: 12px; height: 12px; background: var(--accent); border: 3px solid white; border-radius: 50%; box-shadow: 0 0 0 2px var(--accent); z-index: 1; }
 
-        header {
-            padding: 40px 25px 20px;
-            background: white;
-            border-bottom: 0.5px solid var(--line);
-        }
+        /* Estilo para el punto de Sección Especial (Dorado) */
+        .point.special::after { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
 
-        header h1 {
-            font-size: 26px;
-            font-weight: 700;
-            margin: 0;
-        }
+        .card { background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.02); }
+        .card img { width: 100%; height: 150px; object-fit: cover; background: #eee; }
+        .card-body { padding: 15px; }
+        .time { font-size: 13px; font-weight: 700; color: var(--accent); display: block; margin-bottom: 5px; }
+        .card-body h2 { font-size: 17px; margin: 0; font-weight: 600; }
+        .card-body p { font-size: 13px; color: #86868b; margin: 5px 0 12px; line-height: 1.4; }
 
-        .date-badge {
-            background: var(--fallas);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+        .btn-group { display: flex; gap: 8px; }
+        .btn { flex: 1; text-align: center; padding: 10px; border-radius: 12px; font-size: 12px; font-weight: 600; text-decoration: none; transition: 0.2s; }
+        .btn-nav { background: var(--accent); color: white; }
+        .btn-info { background: #f2f2f7; color: var(--accent); }
+        
+        /* Botón especial dorado */
+        .btn-special { background: var(--gold); color: #000; flex: 2; }
 
-        .route {
-            position: relative;
-            padding: 20px;
-            max-width: 500px;
-            margin: auto;
-        }
-
-        .route::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 30px;
-            bottom: 30px;
-            width: 2px;
-            background: var(--line);
-        }
-
-        .point {
-            position: relative;
-            margin-bottom: 35px;
-            padding-left: 45px;
-        }
-
-        .point::after {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 4px;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border: 3px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 2px var(--accent);
-            z-index: 1;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.02);
-        }
-
-        .card img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 15px;
-        }
-
-        .time {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .card-body h2 {
-            font-size: 17px;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        .card-body p {
-            font-size: 13px;
-            color: #86868b;
-            margin: 5px 0 12px;
-            line-height: 1.4;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .btn-nav {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-info {
-            background: #f2f2f7;
-            color: var(--accent);
-        }
-
-        .ticket-note {
-            font-size: 11px;
-            background: #fff3e0;
-            color: #e65100;
-            padding: 6px 10px;
-            border-radius: 8px;
-            margin-top: 10px;
-            display: block;
-            font-weight: 500;
-        }
+        .must-see { background: var(--gold); color: black; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 5px; display: inline-block; text-transform: uppercase; }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <div class="date-badge">18 MARZO 2026</div>
-        <h1>Valencia VIP Itinerary</h1>
-    </header>
+<header>
+    <div class="date-badge">18 MARZO 2026</div>
+    <h1>Valencia VIP Itinerary</h1>
+</header>
 
-    <div class="route">
-
-        <!-- 10:00 - CAC -->
-        <div class="point">
-
-            <div class="card">
-                <img src="artesyciencias1.jpg">
-                <div class="card-body">
-                    <h2>City of Arts & Sciences</h2>
-                    <p>Architecture walk (Outdoor). Best for photos. <br><em>Mejor para fotos. Sin entradas.</em></p>
-                    <div class="btn-group">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=City+of+Arts+and+Sciences+Valencia"
-                            class="btn btn-nav">🧭 CÓMO LLEGAR</a>
-                        <a href="artesyciencias.html" class="btn btn-info">INFO</a>
-                    </div>
+<div class="route">
+    
+    <!-- 10:00 - CAC -->
+    <div class="point">
+        <span class="time">10:00h</span>
+        <div class="card">
+            <img src="artesyciencias1.jpg">
+            <div class="card-body">
+                <h2>City of Arts & Sciences</h2>
+                <p>Architecture walk (Outdoor). No tickets needed.<br><em>Paseo por los exteriores. Sin entradas.</em></p>
+                <div class="btn-group">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=City+of+Arts+and+Sciences+Valencia" class="btn btn-nav">GPS</a>
+                    <a href="artesyciencias.html" class="btn btn-info">INFO</a>
                 </div>
             </div>
         </div>
-
-        <!-- 12:30 - MASCLETA -->
-        <div class="point">
-
-            <div class="card">
-                <img src="mascleta1.jpg">
-                <div class="card-body">
-                    <h2>Mascletà </h2>
-                    <p>Enjoy Mascletà. Best to arrive before 12:30h due to street closures.<br><em>Disfutar de la
-                            Mascletà. Llegar antes de las 12:30h.</em></p>
-                    <div class="btn-group">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Plaza+del+Ayuntamiento+Valencia"
-                            class="btn btn-nav">🧭 CÓMO LLEGAR</a>
-                        <a href="mascleta.html" class="btn btn-info">INFO</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 16:30 - CATEDRAL -->
-        <div class="point">
-
-            <div class="card">
-                <img src="catedral1.jpg">
-                <div class="card-body">
-                    <h2>Cathedral & Holy Grail</h2>
-                    <p>History of the Grail.<br><em>Historia del Santo Cáliz.</em></p>
-                    <div class="btn-group">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Valencia+Cathedral"
-                            class="btn btn-nav">🧭 CÓMO LLEGAR</a>
-                        <a href="catedral.html" class="btn btn-info">INFO</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- 17:15 - MICALET -->
-        <div class="point">
-
-            <div class="card">
-                <img src="micalet1.jpg">
-                <div class="card-body">
-                    <h2>The Micalet Tower</h2>
-                    <p>207 steps for the best views.<br><em>Las mejores vistas de la ciudad.</em></p>
-                    <div class="btn-group">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=El+Miguelete+Valencia"
-                            class="btn btn-nav">🧭 CÓMO LLEGAR</a>
-                        <a href="micalet.html" class="btn btn-info">INFO</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- 18:00 - PLAZA VIRGEN -->
-        <div class="point">
-
-            <div class="card">
-                <img src="plazavirgen1.jpg">
-                <div class="card-body">
-                    <h2>Plaza de la Virgen</h2>
-                    <p>Final stop. Relaxing historical square.<br><em>Final del día en la plaza romana.</em></p>
-                    <div class="btn-group">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Plaza+de+la+Virgen+Valencia"
-                            class="btn btn-nav">🧭 CÓMO LLEGAR</a>
-                        <a href="plazavirgen.html" class="btn btn-info">INFO</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SPECIAL SECTION FALLAS ROUTE -->
-        <div class="step">
-            <span class="time">18:30 PM</span>
-            <div class="card" style="border: 2px solid #ffcc00;">
-                <img src="especial_cover.jpg">
-                <div class="card-content">
-                    <span class="badge" style="background:#ffcc00; color:#000;">MUST SEE</span>
-                    <h2>Special Section Monuments</h2>
-                    <p>A private selection of the most spectacular giant monuments for my friends from Ningbo.</p>
-                    <a href="special-fallas.html" class="btn-info"
-                        style="width: 90%; text-align: center; margin-left:0;">EXPLORE THE GIANTS ➔</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <footer style="text-align:center; padding: 40px; color:#86868b; font-size:12px;">
-        Innovai.es web Developers
-    </footer>
+    <!-- 12:30 - MASCLETA -->
+    <div class="point">
+        <span class="time">12:30h</span>
+        <div class="card">
+            <img src="mascleta1.jpg">
+            <div class="card-body">
+                <h2>Mascletà Balcony</h2>
+                <p>Private balcony reserved. Best arrival before 13:00h.<br><em>Balcón privado. Llegar antes de las 13:00h.</em></p>
+                <div class="btn-group">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Plaza+del+Ayuntamiento+Valencia" class="btn btn-nav">GPS</a>
+                    <a href="mascleta.html" class="btn btn-info">INFO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 16:30 - CATEDRAL -->
+    <div class="point">
+        <span class="time">16:30h</span>
+        <div class="card">
+            <img src="catedral1.jpg">
+            <div class="card-body">
+                <h2>Cathedral & Holy Grail</h2>
+                <p>Visit the museum of the Holy Chalice.<br><em>Visita al museo del Santo Cáliz.</em></p>
+                <div class="btn-group">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Valencia+Cathedral" class="btn btn-nav">GPS</a>
+                    <a href="catedral.html" class="btn btn-info">INFO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 18:30 - SECCIÓN ESPECIAL (LA NUEVA CORREGIDA) -->
+    <div class="point special">
+        <span class="time" style="color:var(--gold)">18:30h</span>
+        <div class="card" style="border: 1px solid var(--gold);">
+            <img src="especial_cover.jpg">
+            <div class="card-body">
+                <span class="must-see">Must See / Obligatorio</span>
+                <h2>Special Section Fallas</h2>
+                <p>The giant monuments. Masterpieces of art and satire.<br><em>Los monumentos gigantes de Sección Especial.</em></p>
+                <div class="btn-group">
+                    <a href="special-fallas.html" class="btn btn-special">EXPLORE THE GIANTS ➔</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer style="text-align:center; padding: 40px; color:#86868b; font-size:12px;">
+    Official Business Tour Valencia 2026<br>Prepared by Pablo for Ningbo Friends
+</footer>
 
 </body>
-
 </html>
